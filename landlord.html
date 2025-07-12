@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Landlord Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+<!-- Navbar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="logo">Moovi</div>
+
+      <button class="menu-toggle" id="mobile-menu">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <nav class="nav-links" id="nav-links">
+        <a href="#">Home</a>
+        <a href="property.html">Property</a>
+        <a href="contact.html">Contact</a>
+
+        <div class="dropdown">
+          <button class="dropbtn">Dashboard <i class="fa fa-caret-down"></i></button>
+          <div class="dropdown-content">
+            <a href="#">Admin</a>
+            <a href="landlord.html">Landlord</a>
+            <a href="tenant.html">Tenant</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button class="dropbtn"><i class="fas fa-user"></i></button>
+          <div class="dropdown-content">
+            <a href="#">Login</a>
+            <a href="#">Register</a>
+          </div>
+        </div>
+
+        <a href="#"><i class="fas fa-envelope"></i></a>
+      </nav>
+    </div>
+  </header>
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2>Landlord</h2>
+      <nav>
+        <ul>
+          <li><i class="fa-solid fa-chart-line"></i> Dashboard</li>
+          <li><i class="fa-solid fa-building"></i> My Properties</li>
+          <li><i class="fa-solid fa-tools"></i> Repair Requests</li>
+          <li><i class="fa-solid fa-plus-circle"></i> Add Property</li>
+          <li><i class="fa-solid fa-sign-out-alt"></i> Logout</li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Topbar -->
+      <header class="topbar">
+        <h1>Welcome, Landlord</h1>
+        <i class="fa-solid fa-bell"></i>
+      </header>
+
+      <!-- Stats Cards -->
+      <section class="dashboard-cards">
+        <div class="card">
+          <h3>Total Properties</h3>
+          <p>5</p>
+        </div>
+        <div class="card">
+          <h3>Open Repairs</h3>
+          <p>3</p>
+        </div>
+        <div class="card">
+          <h3>Tenants</h3>
+          <p>12</p>
+        </div>
+      </section>
+
+      <!-- Properties Table -->
+      <section class="data-section">
+        <h2>My Properties</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Location</th>
+              <th>Status</th>
+              <th>Tenants</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Modern 2BR Apartment</td>
+              <td>Kilimani</td>
+              <td>Available</td>
+              <td>2</td>
+              <td><button>Edit</button></td>
+            </tr>
+            <!-- more rows -->
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Repair Requests Table -->
+      <section class="data-section">
+        <h2>Repair Requests</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Tenant</th>
+              <th>Property</th>
+              <th>Issue</th>
+              <th>Status</th>
+              <th>Update</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Jane W.</td>
+              <td>Modern 2BR</td>
+              <td>Leaking pipe</td>
+              <td>Pending</td>
+              <td><button>Mark as Fixed</button></td>
+            </tr>
+            <!-- more rows -->
+          </tbody>
+        </table>
+      </section>
+
+    </main>
+  </div>
+
+</body>
+</html>

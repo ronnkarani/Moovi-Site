@@ -2,13 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Moovi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tenant Dashboard</title>
   <link rel="stylesheet" href="css/style.css" />
-    <!-- Font Awesome v6 (Working, No integrity check) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
-
 <body>
   <!-- Navbar -->
   <header class="navbar">
@@ -20,10 +18,9 @@
       </button>
 
       <nav class="nav-links" id="nav-links">
-        <a href="index.html">Home</a>
+        <a href="#">Home</a>
         <a href="property.html">Property</a>
         <a href="contact.html">Contact</a>
-
 
         <div class="dropdown">
           <button class="dropbtn">Dashboard <i class="fa fa-caret-down"></i></button>
@@ -46,42 +43,59 @@
       </nav>
     </div>
   </header>
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <aside class="sidebar tenant">
+      <h2>Tenant</h2>
+      <nav>
+        <ul>
+          <li><i class="fa-solid fa-gauge"></i> Dashboard</li>
+          <li><i class="fa-solid fa-building-user"></i> My Property</li>
+          <li><i class="fa-solid fa-screwdriver-wrench"></i> Repairs</li>
+          <li><i class="fa-solid fa-user"></i> Profile</li>
+          <li><i class="fa-solid fa-sign-out-alt"></i> Logout</li>
+        </ul>
+      </nav>
+    </aside>
 
-  <!-- Contact Page -->
-<section class="contact-hero">
-  <div class="container">
-    <h1>Contact Us</h1>
-    <p>We’re here to help. Reach out for inquiries, support, or partnerships.</p>
-  </div>
-</section>
-
-<section class="contact-section">
-  <div class="container contact-grid">
-    <!-- Contact Form -->
-    <div class="contact-form">
-      <h2>Send Us a Message</h2>
-      <form>
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
-        <input type="text" name="subject" placeholder="Subject" />
-        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
+    <!-- Main Content -->
+    <main class="main-content tenant-dashboard">
+      <!-- Topbar -->
+      <header class="topbar">
+        <h1>Welcome, Tenant</h1>
+        <i class="fa-solid fa-bell"></i>
+      </header>
+      <!-- Repair Submission Form -->
+<section class="data-section">
+  <h2>Submit a Repair Request</h2>
+  <form class="repair-form">
+    <div class="form-group">
+      <label for="issue">Issue Title</label>
+      <input type="text" id="issue" name="issue" placeholder="e.g. Broken tap" required />
     </div>
 
-    <!-- Contact Info -->
-    <div class="contact-info">
-      <h2>Get in Touch</h2>
-      <p><i class="fa-solid fa-phone"></i> +254 712 345678</p>
-      <p><i class="fa-solid fa-envelope"></i> info@rentmoovin.co.ke</p>
-      <p><i class="fa-solid fa-location-dot"></i> Nairobi, Kenya</p>
-      <div class="map-placeholder">
-        <!-- Embed map here if needed -->
-        <iframe src="https://maps.google.com/maps?q=nairobi&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="200" frameborder="0" allowfullscreen></iframe>
-      </div>
+    <div class="form-group">
+      <label for="description">Issue Description</label>
+      <textarea id="description" name="description" rows="4" placeholder="Describe the issue in detail..." required></textarea>
     </div>
-  </div>
+
+    <div class="form-group">
+      <label for="urgency">Urgency</label>
+      <select id="urgency" name="urgency" required>
+        <option value="">Select urgency</option>
+        <option value="low">Low</option>
+        <option value="normal">Normal</option>
+        <option value="high">High</option>
+      </select>
+    </div>
+
+    <button type="submit">Submit Request</button>
+  </form>
 </section>
+
+
+      </main>
+  </div>
 
 </body>
 <script src="js/scripts.js"></script>
