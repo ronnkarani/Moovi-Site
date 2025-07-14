@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Properties | Landlord</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f8f8;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      padding: 2rem 0;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .actions {
+      text-align: right;
+      margin-bottom: 1rem;
+    }
+    .actions button {
+      background: #007bff;
+      color: #fff;
+      padding: 0.6rem 1rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+    }
+    th, td {
+      padding: 1rem;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+    }
+    tr:hover {
+      background: #f1f1f1;
+    }
+    .btn {
+      padding: 0.4rem 0.8rem;
+      margin-right: 0.4rem;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+    .edit-btn {
+      background: #28a745;
+      color: white;
+    }
+    .delete-btn {
+      background: #dc3545;
+      color: white;
+    }
+    .add-form {
+      display: none;
+      margin-top: 2rem;
+      background: #fff;
+      padding: 1rem;
+      border: 1px solid #ccc;
+    }
+    .add-form input {
+      width: 100%;
+      padding: 0.6rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+    .add-form button {
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>My Properties</h1>
+
+    <div class="actions">
+      <button onclick="toggleForm()">+ Add Property</button>
+    </div>
+
+    <div class="add-form" id="addForm">
+      <input type="text" id="title" placeholder="Property Title" required>
+      <input type="text" id="location" placeholder="Location" required>
+      <input type="text" id="status" placeholder="Status (Available/Occupied)" required>
+      <input type="number" id="tenants" placeholder="Number of Tenants" required>
+      <button onclick="addProperty()">Save Property</button>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Location</th>
+          <th>Status</th>
+          <th>Tenants</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="propertyTable">
+        <tr>
+          <td>Modern 2BR Apartment</td>
+          <td>Kilimani</td>
+          <td>Available</td>
+          <td>2</td>
+          <td>
+            <button class="btn edit-btn" onclick="editProperty(this)">Edit</button>
+            <button class="btn delete-btn" onclick="deleteProperty(this)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    function toggleForm() {
+      const form = document.getElementById('addForm');
+      form.style.display = form.style.display === 'none' ? 'block' : 'none';
+    }
+
+    function addProperty() {
+      const title = document.getElementById('title').value;
+      const location = document.getElementById('location').value;
+      const status = document.getElementById('status').value;
+      const tenants = document.getElementById('tenants').value;
+
+      const table = document.getElementById('propertyTable');
+      const row = table.insertRow();
+      row.innerHTML = `
+        <td>${title}</td>
+        <td>${location}</td>
+        <td>${status}</td>
+        <td>${tenants}</td>
+        <td>
+          <button class="btn edit-btn" onclick="editProperty(this)">Edit</button>
+          <button class="btn delete-btn" onclick="deleteProperty(this)">Delete</button>
+        </td>
+      `;
+
+      document.getElementById('addForm').reset();
+      toggleForm();
+    }
+
+    function deleteProperty(button) {
+      const row = button.closest('tr');
+      row.remove();
+    }
+
+    function editProperty(button) {
+      const row = button.closest('tr');
+      const cells = row.querySelectorAll('td');
+      const [title, location, status, tenants] = [...cells].slice(0, 4);
+
+      const newTitle = prompt("Edit Title", title.innerText);
+      const newLocation = prompt("Edit Location", location.innerText);
+      const newStatus = prompt("Edit Status", status.innerText);
+      const newTenants = prompt("Edit Number of Tenants", tenants.innerText);
+
+      if (newTitle && newLocation && newStatus && newTenants) {
+        title.innerText = newTitle;
+        location.innerText = newLocation;
+        status.innerText = newStatus;
+        tenants.innerText = newTenants;
+      }
+    }
+  </script>
+</body>
+</html>

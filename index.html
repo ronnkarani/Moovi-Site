@@ -13,14 +13,18 @@
   <!-- Navbar -->
   <header class="navbar">
     <div class="nav-container">
-      <div class="logo">Moovi</div>
+      <div class="logo">
+        <a href="home">
+          <img src='assets/logo.png' alt="Logo" class="site-logo">
+        </a>
+      </div>
 
       <button class="menu-toggle" id="mobile-menu">
         <i class="fas fa-bars"></i>
       </button>
 
       <nav class="nav-links" id="nav-links">
-        <a href="#">Home</a>
+        <a href="index.html">Home</a>
         <a href="property.html">Property</a>
         <a href="contact.html">Contact</a>
 
@@ -41,7 +45,6 @@
           </div>
         </div>
 
-        <a href="#"><i class="fas fa-envelope"></i></a>
       </nav>
     </div>
   </header>
@@ -54,7 +57,7 @@
     <div class="hero-text">
       <h1>Find Your Dream Rental</h1>
       <p>Explore the best listings in your area with ease and confidence.</p>
-      <a href="#" class="hero-btn">Get Started</a>
+      <a href="property.html" class="hero-btn">View Properties</a>
     </div>
   </div>
 </section>
@@ -127,8 +130,13 @@
 <!-- Footer -->
 <footer class="footer">
   <div class="footer-upper container">
-    <div class="footer-logo">
-      <h2>RentEasy</h2>
+    <div class="footer-logo" >
+        <div class="logo">
+  <a href="{% url 'home' %}">
+    <img src='assets/logo.png' alt="Logo" class="site-logo">
+  </a>
+</div>
+      <h2>Moovi</h2>
       <p>Your trusted rental partner.</p>
     </div>
 
